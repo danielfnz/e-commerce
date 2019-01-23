@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { CatalogoComponent } from './core/catalogo/catalogo.component';
-
+import { BsDropdownModule, TooltipModule, ModalModule } from 'ngx-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,8 +14,12 @@ import { CatalogoComponent } from './core/catalogo/catalogo.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
+  exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [],
   bootstrap: [AppComponent]
 })
