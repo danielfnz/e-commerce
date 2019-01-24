@@ -18,8 +18,6 @@ cache:
     - node_modules
 
 script:
-  - ng lint
-  - ng test --watch=false
   - ng build --prod --base-href https://danielfnz.github.io/e-commerce/
 
 deploy:

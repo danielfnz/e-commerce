@@ -6,9 +6,7 @@
         <ngx-slick
           class="carousel"
           #slickModal="slick-modal"
-          [config]="slideConfig"
-          (afterChange)="afterChange($event)"
-        >
+          [config]="slideConfig">
           <div ngxSlickItem *ngFor="let produto of produtos" class="product">
             <div class="card" style="width: 100%">
               <div class="card-body">
