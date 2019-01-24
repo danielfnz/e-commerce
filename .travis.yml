@@ -1,0 +1,32 @@
+sudo: required
+language: node_js
+node_js:
+  - stable
+
+branches:
+  only:
+    - master
+
+addons:
+  chrome: stable
+
+before_script:
+  - npm install -g @angular/cli
+
+cache:
+  directories:
+    - node_modules
+
+script:
+  - ng lint
+  - ng test --watch=false
+  - ng build --prod --base-href https://danielfnz.github.io/e-commerce/
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: ./dist/e-commerce
+  on:
+    branch: master
