@@ -1,3 +1,99 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  padding: 0;
+  margin: 0;
+  background: #FFF;
+  font-family: 'Mada', sans-serif;
+}
+
+body a,
+button {
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  text-decoration: none;
+}
+
+body a:hover,
+button:hover {
+  text-decoration: none;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body a:focus,
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poiret One', cursive;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  color: #999;
+  font-family: 'Mada', sans-serif;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  margin: 0;
+}
+
+a:focus,
+a:hover {
+  text-decoration: none;
+  outline: none
+}
+
+/* //Reset Code */
+
+/* colors code */
+.text-bl {
+  color: #343a40;
+}
+
+.text-wh {
+  color: #fff;
+}
+
+.bg-wh {
+  background: #fff;
+}
+
+.text-li {
+  color: #f8f9fa;
+}
+
+.let {
+  letter-spacing: 1px;
+}
