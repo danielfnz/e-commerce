@@ -25,4 +25,8 @@ export class CatalogoService {
   getProdutos() {
     return this.produtos;
   }
+
+  getProduto(idProduto) {
+    return this.produtos.filter(obj => obj.idProduto === idProduto)[0];
+  }
 }
