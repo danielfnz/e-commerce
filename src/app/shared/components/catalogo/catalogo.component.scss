@@ -1,0 +1,25 @@
+section {
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    h3 {
+      padding-bottom: 20px;
+    }
+
+    .product {
+      padding:10px;
+      .card {
+        text-align: center;
+        .card-title {
+          text-transform: uppercase;
+        }
+        .card-img-top {
+          margin-top: 30px;
+        }
+        .linkProduto {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

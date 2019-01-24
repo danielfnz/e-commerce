@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BsDropdownModule, TooltipModule, ModalModule } from 'ngx-bootstrap';
 import { CartModule } from './core/cart/cart.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,6 +13,7 @@ import { CartModule } from './core/cart/cart.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),

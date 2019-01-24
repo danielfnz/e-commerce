@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'checkout',
     loadChildren: './core/checkout/checkout.module#CheckoutModule'
   },
+  {
+    path: 'product',
+    loadChildren: './core/product/product.module#ProductModule'
+  },
 ];
 
 @NgModule({

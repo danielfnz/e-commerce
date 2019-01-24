@@ -1,7 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
-@import '~bootstrap/dist/css/bootstrap.min.css';
-
 body {
   padding: 0;
   margin: 0;
@@ -96,4 +93,54 @@ a:hover {
 
 .let {
   letter-spacing: 1px;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+    font-family: 'slick';
+    font-size: 40px;
+    line-height: 1;
+
+    opacity: .75;
+    color: #aaa;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev
+{
+    left: -50px;
+}
+[dir='rtl'] .slick-prev
+{
+    right: -50px;
+    left: auto;
+}
+.slick-prev:before
+{
+    content: '←';
+}
+[dir='rtl'] .slick-prev:before
+{
+    content: '→';
+}
+
+.slick-next
+{
+    right: -25px;
+}
+[dir='rtl'] .slick-next
+{
+    right: auto;
+    left: -25px;
+}
+.slick-next:before
+{
+    content: '→';
+}
+[dir='rtl'] .slick-next:before
+{
+    content: '←';
 }
