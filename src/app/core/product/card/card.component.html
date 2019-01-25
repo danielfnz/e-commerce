@@ -1,0 +1,33 @@
+<div class="card-container">
+
+  <div class="titulo">
+  <span>{{produto.nome}}</span>
+    <span>{{produto.marca}}</span>
+  </div>
+  <div class="desconto">
+  <app-desconto [valor]="produto.preco" [valorComDesconto]="produto.precoPromocional" [tamanho]="'small'" ></app-desconto>
+  </div>
+  <div class="imagem">
+    <img [src]="produto.imagens[0]" width="100" height="100">
+  </div>
+
+  <div class="icones">
+  <app-product-item-description *ngFor="let icon of produto.icones" [icon]="icon"></app-product-item-description>
+  </div>
+
+  <div class="preco">
+    <div class="preco-anterior">
+      De R$ {{produto.preco | virgula}}
+    </div>
+    <div class="preco-atual">
+      <span>Por </span>
+      <span>R$ {{produto.precoPromocional | virgula}}</span>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <app-itens-count></app-itens-count>
+    <app-buttom [label]="'Comprar'" class="btn-big"></app-buttom>
+  </div>
+
+</div>

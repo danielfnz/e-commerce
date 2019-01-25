@@ -1,6 +1,8 @@
-import { CatalogoService } from './../../shared/services/catalogo.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {CatalogoService} from '../../shared/services/catalogo.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {ProductService} from '../../shared/services/product.service';
+import {Product} from '../../shared/model/product.model';
 
 @Component({
   selector: 'app-product',
@@ -9,26 +11,28 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductComponent implements OnInit, OnDestroy {
 
-  private idProduto: number;
+  public produto;
+  produtosList: Product[] = [];
   private sub: any;
 
-  public produto;
+  slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
 
   constructor(
     private route: ActivatedRoute,
-    private catalogoService: CatalogoService) {
-
-   }
+    private catalogoService: CatalogoService,
+    private productService: ProductService) {
+    this.productService.getProductById(1);
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.idProduto = params.id;
-      this.produto =  this.catalogoService.getProduto(Number(params.id));
-   });
+      this.produto = this.productService.getProductById(Number(params.id));
+      this.produtosList = this.productService.getAllProducts().filter(p => p['id'] !== this.produto.id);
+      console.log(this.produtosList)
+    });
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-
 }
