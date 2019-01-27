@@ -8,9 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CheckoutComponent implements OnInit {
 
-  public cep = '';
-  public endereco = '';
-  public cidade = '';
+  public cep = null;
+  public endereco  = null;
+  public cidade = null;
+  public pagamento = null;
 
   constructor(private http: HttpClient) { }
 
@@ -39,6 +40,10 @@ export class CheckoutComponent implements OnInit {
 
   onStep1Next(event) {
 
+  }
+
+  selecionarPagamento(tipo) {
+    this.pagamento = tipo;
   }
 
   onStep2Next(event) {

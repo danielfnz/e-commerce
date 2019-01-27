@@ -5,12 +5,11 @@
     <div class="row">
       <div class="col-sm">
         <form-wizard>
-          <wizard-step [title]="'Entrega'" (onNext)="onStep1Next($event)">
+          <wizard-step [title]="'Entrega'" (onNext)="onStep1Next($event)" [isValid]="cep != null && endereco != null  && cidade != null">
             <div class="container">
               <div
                 class="row"
-                style="justify-content:center; display: flex; margin:30px"
-              >
+                style="justify-content:center; display: flex;"    >
                 <form>
                   <div class="form-group">
                     <input
@@ -20,38 +19,85 @@
                       aria-describedby="emailHelp"
                       placeholder="CEP"
                       (keyup)="onKeydUp($event)"
-                      required [(ngModel)]="cep"
-                      [ngModelOptions]="{standalone: true}"
+                      required
+                      [(ngModel)]="cep"
+                      [ngModelOptions]="{ standalone: true }"
                     />
                     <small id="emailHelp" class="form-text text-muted"
                       >Informe o cep do endereço da entrega.</small
                     >
                   </div>
                   <div class="form-group">
-                      <label for="exampleFormControlInput1">Endereço</label>
-                      <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="endereco"  [ngModelOptions]="{standalone: true}">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Cidade</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="cidade"  [ngModelOptions]="{standalone: true}">
-                     </div>
+                    <label for="exampleFormControlInput1">Endereço</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleFormControlInput1"
+                      [(ngModel)]="endereco"
+                      [ngModelOptions]="{ standalone: true }"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Cidade</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleFormControlInput1"
+                      [(ngModel)]="cidade"
+                      [ngModelOptions]="{ standalone: true }"
+                    />
+                  </div>
                 </form>
               </div>
             </div>
           </wizard-step>
-          <wizard-step [title]="'Pagamento'" (onNext)="onStep2Next($event)">
-            <h1>Pagamento</h1>
+          <wizard-step [title]="'Pagamento'" (onNext)="onStep2Next($event)" [isValid]="pagamento != null">
+            <div class="container">
+                <div
+                class="row"
+                style="justify-content:center; display: flex; margin:70px">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                  <div class="card" style="width: 18rem;" (click)="selecionarPagamento('dinheiro')" [ngClass]="{'select': pagamento == 'dinheiro'}">
+                    <img class="card-img-top" src="https://image.flaticon.com/icons/svg/138/138279.svg" alt="Card image cap" width="60px" height="60px" style="margin-top:30px"/>
+                    <div class="card-body" style="text-align:center">
+                      <h5 class="card-title">Dinheiro</h5>
+                      <p class="card-text">
+                       Pague com dinheiro
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-12" >
+                  <div class="card" style="width: 18rem;" (click)="selecionarPagamento('cartao')" [ngClass]="{'select': pagamento == 'cartao'}">
+                    <img class="card-img-top" src="https://image.flaticon.com/icons/svg/138/138287.svg" alt="Card image cap" width="60px" height="60px" style="margin-top:30px"/>
+                    <div class="card-body" style="text-align:center">
+                      <h5 class="card-title">Cartão de crédito</h5>
+                      <p class="card-text">
+                          Pague com Cartão de crédito
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-12" >
+                    <div class="card" style="width: 18rem;" (click)="selecionarPagamento('boleto')" [ngClass]="{'select': pagamento == 'boleto'}">
+                      <img class="card-img-top" src="https://image.flaticon.com/icons/svg/2/2273.svg" alt="Card image cap" width="60px" height="60px" style="margin-top:30px" />
+                      <div class="card-body" style="text-align:center">
+                        <h5 class="card-title">Boleto</h5>
+                        <p class="card-text">
+                            Pague com Boleto
+                        </p>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
           </wizard-step>
           <wizard-step
             [title]="'Finalizar Compra'"
             (onComplete)="onComplete($event)"
           >
-            <div [ngSwitch]="isCompleted">
-              <div *ngSwitchDefault><h1>Step4</h1></div>
-              <div *ngSwitchCase="true">
-                <h4>Thank you! You have completed all the steps.</h4>
-              </div>
-            </div>
+
           </wizard-step>
         </form-wizard>
       </div>
