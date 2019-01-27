@@ -26,13 +26,9 @@ export class CartService {
   }
 
   clear() {
-    this.carrinho = [];
-    this.carrinhoObs.next(this.carrinho);
-    localStorage.setItem('carrinho', "");
+    this.limparCarrinho();
   }
-  /*
-  tem que tratar itens repetidos
-  */
+
   addCarrinho(item: Product) {
     this.carrinho.push(item);
     this.valorTotal += item.preco * item.quantidade;

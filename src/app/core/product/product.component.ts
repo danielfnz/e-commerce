@@ -17,7 +17,6 @@ export class ProductComponent implements OnInit, OnDestroy {
   public quantidade = 1;
   public slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
 
-  @Input() menuItem: Product;
   @Output() add = new EventEmitter();
 
   constructor(
@@ -51,8 +50,4 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.produto.quantidade = e;
     this.quantidade = e;
   }
-//teste
-/*   addToCart(){
-    this.add.emit(this.menuItem)
-  } */
 }

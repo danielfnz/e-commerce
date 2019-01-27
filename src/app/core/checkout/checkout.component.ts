@@ -52,10 +52,9 @@ export class CheckoutComponent implements OnInit {
   }
 
   onComplete(event) {
-    console.log(event);
-    this.sucesso = true;
+     this.sucesso = true;
     this.carrinhoLength = 0;
-    this.cartService.clear();
+    this.cartService.limparCarrinho();
   }
 
 }
