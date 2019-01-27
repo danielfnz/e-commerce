@@ -16,7 +16,10 @@ export class CartService {
       this.quantidadeTotal += Number(item.quantidade);
     });
   }
-
+  clear(){
+    this.carrinho = []
+  }
+  
   addCarrinho(item: Product) {
     this.carrinho.push(item);
     this.valorTotal += item.preco * item.quantidade;
