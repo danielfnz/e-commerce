@@ -4,12 +4,59 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <h3>Checkout</h3>
-
+        <form-wizard>
+          <wizard-step [title]="'Entrega'" (onNext)="onStep1Next($event)">
+            <div class="container">
+              <div
+                class="row"
+                style="justify-content:center; display: flex; margin:30px"
+              >
+                <form>
+                  <div class="form-group">
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                      placeholder="CEP"
+                      (keyup)="onKeydUp($event)"
+                      required [(ngModel)]="cep"
+                      [ngModelOptions]="{standalone: true}"
+                    />
+                    <small id="emailHelp" class="form-text text-muted"
+                      >Informe o cep do endereço da entrega.</small
+                    >
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleFormControlInput1">Endereço</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="endereco"  [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Cidade</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="cidade"  [ngModelOptions]="{standalone: true}">
+                     </div>
+                </form>
+              </div>
+            </div>
+          </wizard-step>
+          <wizard-step [title]="'Pagamento'" (onNext)="onStep2Next($event)">
+            <h1>Pagamento</h1>
+          </wizard-step>
+          <wizard-step
+            [title]="'Finalizar Compra'"
+            (onComplete)="onComplete($event)"
+          >
+            <div [ngSwitch]="isCompleted">
+              <div *ngSwitchDefault><h1>Step4</h1></div>
+              <div *ngSwitchCase="true">
+                <h4>Thank you! You have completed all the steps.</h4>
+              </div>
+            </div>
+          </wizard-step>
+        </form-wizard>
       </div>
     </div>
   </div>
 </section>
-
 
 <app-footer></app-footer>
