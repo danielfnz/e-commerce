@@ -28,6 +28,7 @@ export class CartService {
   clear() {
     this.carrinho = [];
     this.carrinhoObs.next(this.carrinho);
+    localStorage.setItem('carrinho', "");
   }
   /*
   tem que tratar itens repetidos

@@ -9,10 +9,14 @@ import { CartService } from '../../services/cart.service';
 export class HeaderComponent implements OnInit {
 
   public carrinho = [];
+  public quantidadeTotal = 0;
+  public valorTotal = 0;
 
   constructor(public cartService: CartService) {
     this.cartService.getCarrinho().subscribe(carrinhoList => {
       this.carrinho = carrinhoList;
+      this.quantidadeTotal = this.cartService.quantidadeTotal;
+      this.valorTotal = this.cartService.valorTotal;
     });
    }
 

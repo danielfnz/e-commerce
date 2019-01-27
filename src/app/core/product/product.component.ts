@@ -42,7 +42,9 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   addToCart() {
     this.cartService.addCarrinho(this.produto);
-    this.router.navigate([`/cart`]);
+    setTimeout(() => {
+      this.router.navigate([`/cart`]);
+    }, 300);
   }
 
   alteraQuantidade(e) {

@@ -28,14 +28,14 @@
           triggers="mouseover"
         >
           <div class="value">
-            {{ cartService.valorTotal | currency: "BRL":true }}
+            {{ valorTotal | currency: "BRL":true }}
           </div>
           <div class="quantity" dropdownToggle>
-            <span class="totalitems">{{ cartService.quantidadeTotal }}</span>
+            <span class="totalitems">{{ quantidadeTotal }}</span>
           </div>
 
           <div class="dropdown-menu carrinho" *dropdownMenu>
-            <div *ngIf="cartService.quantidadeTotal >= 1; else carrinhoVazio">
+            <div *ngIf="quantidadeTotal >= 1; else carrinhoVazio">
               <div *ngFor="let item of carrinho">
                 <div
                   style="flex-direction: row; justify-content: flex-start; display:flex;"

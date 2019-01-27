@@ -23,7 +23,9 @@ export class CardComponent {
 
   addToCart() {
     this.cartService.addCarrinho(this.produto);
-    this.router.navigate([`/cart`]);
+    setTimeout(() => {
+      this.router.navigate([`/cart`]);
+    }, 300);
   }
 
   alteraQuantidade(e) {

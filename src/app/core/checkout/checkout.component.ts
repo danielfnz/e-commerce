@@ -1,3 +1,4 @@
+import { CartService } from './../../shared/services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import * as cepPromise from 'cep-promise/dist/cep-promise-browser';
 import { HttpClient } from '@angular/common/http';
@@ -12,11 +13,15 @@ export class CheckoutComponent implements OnInit {
   public endereco  = null;
   public cidade = null;
   public pagamento = null;
+  carrinhoLength: any;
+  sucesso: boolean;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cartService: CartService) { }
 
   ngOnInit() {
-
+    this.cartService.getCarrinho().subscribe(carrinho => {
+      this.carrinhoLength = carrinho.length;
+    });
   }
 
   buscarCep() {
@@ -46,12 +51,11 @@ export class CheckoutComponent implements OnInit {
     this.pagamento = tipo;
   }
 
-  onStep2Next(event) {
-
-  }
-
   onComplete(event) {
-
+    console.log(event);
+    this.sucesso = true;
+    this.carrinhoLength = 0;
+    this.cartService.clear();
   }
 
 }

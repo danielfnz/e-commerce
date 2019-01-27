@@ -4,12 +4,14 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <form-wizard>
-          <wizard-step [title]="'Entrega'" (onNext)="onStep1Next($event)" [isValid]="cep != null && endereco != null  && cidade != null">
+        <form-wizard *ngIf="carrinhoLength > 0 && !sucesso">
+          <wizard-step
+            [title]="'Entrega'"
+            (onNext)="onStep1Next($event)"
+            [isValid]="cep != null && endereco != null && cidade != null"
+          >
             <div class="container">
-              <div
-                class="row"
-                style="justify-content:center; display: flex;"    >
+              <div class="row" style="justify-content:center; display: flex;">
                 <form>
                   <div class="form-group">
                     <input
@@ -51,55 +53,105 @@
               </div>
             </div>
           </wizard-step>
-          <wizard-step [title]="'Pagamento'" (onNext)="onStep2Next($event)" [isValid]="pagamento != null">
+          <wizard-step
+            [title]="'Pagamento'"
+            (onComplete)="onComplete($event)"
+            [isValid]="pagamento != null"
+          >
             <div class="container">
-                <div
+              <div
                 class="row"
-                style="justify-content:center; display: flex; margin:70px">
+                style="justify-content:center; display: flex; margin:70px"
+              >
                 <div class="col-lg-4 col-md-4 col-xs-12">
-                  <div class="card" style="width: 18rem;" (click)="selecionarPagamento('dinheiro')" [ngClass]="{'select': pagamento == 'dinheiro'}">
-                    <img class="card-img-top" src="https://image.flaticon.com/icons/svg/138/138279.svg" alt="Card image cap" width="60px" height="60px" style="margin-top:30px"/>
+                  <div
+                    class="card"
+                    style="width: 18rem;"
+                    (click)="selecionarPagamento('dinheiro')"
+                    [ngClass]="{ select: pagamento == 'dinheiro' }"
+                  >
+                    <img
+                      class="card-img-top"
+                      src="https://image.flaticon.com/icons/svg/138/138279.svg"
+                      alt="Card image cap"
+                      width="60px"
+                      height="60px"
+                      style="margin-top:30px"
+                    />
                     <div class="card-body" style="text-align:center">
                       <h5 class="card-title">Dinheiro</h5>
-                      <p class="card-text">
-                       Pague com dinheiro
-                      </p>
+                      <p class="card-text">Pague com dinheiro</p>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-xs-12" >
-                  <div class="card" style="width: 18rem;" (click)="selecionarPagamento('cartao')" [ngClass]="{'select': pagamento == 'cartao'}">
-                    <img class="card-img-top" src="https://image.flaticon.com/icons/svg/138/138287.svg" alt="Card image cap" width="60px" height="60px" style="margin-top:30px"/>
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                  <div
+                    class="card"
+                    style="width: 18rem;"
+                    (click)="selecionarPagamento('cartao')"
+                    [ngClass]="{ select: pagamento == 'cartao' }"
+                  >
+                    <img
+                      class="card-img-top"
+                      src="https://image.flaticon.com/icons/svg/138/138287.svg"
+                      alt="Card image cap"
+                      width="60px"
+                      height="60px"
+                      style="margin-top:30px"
+                    />
                     <div class="card-body" style="text-align:center">
                       <h5 class="card-title">Cartão de crédito</h5>
-                      <p class="card-text">
-                          Pague com Cartão de crédito
-                      </p>
+                      <p class="card-text">Pague com Cartão de crédito</p>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-xs-12" >
-                    <div class="card" style="width: 18rem;" (click)="selecionarPagamento('boleto')" [ngClass]="{'select': pagamento == 'boleto'}">
-                      <img class="card-img-top" src="https://image.flaticon.com/icons/svg/2/2273.svg" alt="Card image cap" width="60px" height="60px" style="margin-top:30px" />
-                      <div class="card-body" style="text-align:center">
-                        <h5 class="card-title">Boleto</h5>
-                        <p class="card-text">
-                            Pague com Boleto
-                        </p>
-                        </div>
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                  <div
+                    class="card"
+                    style="width: 18rem;"
+                    (click)="selecionarPagamento('boleto')"
+                    [ngClass]="{ select: pagamento == 'boleto' }"
+                  >
+                    <img
+                      class="card-img-top"
+                      src="https://image.flaticon.com/icons/svg/2/2273.svg"
+                      alt="Card image cap"
+                      width="60px"
+                      height="60px"
+                      style="margin-top:30px"
+                    />
+                    <div class="card-body" style="text-align:center">
+                      <h5 class="card-title">Boleto</h5>
+                      <p class="card-text">Pague com Boleto</p>
                     </div>
                   </div>
+                </div>
               </div>
             </div>
-
-          </wizard-step>
-          <wizard-step
-            [title]="'Finalizar Compra'"
-            (onComplete)="onComplete($event)"
-          >
-
           </wizard-step>
         </form-wizard>
+
+        <div *ngIf="carrinhoLength === 0 && !sucesso" class="text-center">
+          <h3 style="margin:50px;">Seu carrinho esta vazio!</h3>
+          <button
+            class="btn btn-outline-primary"
+            routerLink="/"
+            style="margin-bottom:50px;"
+          >
+            Voltar a loja
+          </button>
+        </div>
+
+        <div *ngIf="sucesso" class="text-center">
+          <h3 style="margin:50px;">Compra Concluida com sucesso!</h3>
+          <button
+            class="btn btn-outline-primary"
+            routerLink="/"
+            style="margin-bottom:50px;"
+          >
+            Voltar a loja
+          </button>
+        </div>
       </div>
     </div>
   </div>
