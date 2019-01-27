@@ -13,7 +13,9 @@ export class CardComponent {
   @Input() produto: Product;
   quantidade = 1;
 
-  constructor(private router: Router, private cartService: CartService) { }
+  constructor(private router: Router, private cartService: CartService) {
+
+   }
 
   openProduct() {
     this.router.navigate([`/product/${this.produto.id}`]);
