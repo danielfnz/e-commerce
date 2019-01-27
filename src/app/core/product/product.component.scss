@@ -1,0 +1,79 @@
+@import "./utilities";
+
+.product {
+  @include fontFamily;
+  margin: 30px 150px;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: 550px 550px;
+  grid-row-gap: 30px;
+  grid-template-areas: "image information" "description description" "similar similar";
+
+  &-main-image {
+    grid-area: image;
+  }
+  &-item-description {margin: 25px 0}
+
+  &-main-information {
+    grid-area: information;
+    display: flex;
+
+    .desconto {
+      margin-right: 20px;
+    }
+
+    .title {
+      color: $font-color-primary;
+      font-weight: $font-weight-3;
+      line-height: $line-height-2;
+      border-bottom: 1px solid $font-color-primary;
+      text-transform: uppercase;
+
+      div:nth-child(1) {
+        font-size: $font-size-title;
+      }
+
+      div:nth-child(2) {
+        font-size: $font-size-subtitle;
+      }
+    }
+
+    .preco {
+      color: $font-color-primary;
+      margin-bottom: 25px;
+      &-anterior {
+        text-decoration: line-through;
+        font-weight: $font-weight-1;
+        font-size: $font-size-title-2;
+        line-height: $line-height-3;
+      }
+
+      &-atual {
+        font-weight: $font-weight-3;
+        font-size: $font-size-title-3;
+        line-height: $line-height-4;
+
+        span:nth-child(2) {
+          color: $font-color-orange;
+        }
+      }
+    }
+
+    .buttons {
+      display: grid;
+      grid-gap: 5px;
+      grid-template-columns: 65px 1fr;
+    }
+
+  }
+
+  &-description {
+    grid-area: description;
+    margin: 100px 0;
+  }
+
+  &-similar {
+    grid-area: similar;
+  }
+
+}

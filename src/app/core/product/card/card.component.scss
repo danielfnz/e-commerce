@@ -1,0 +1,85 @@
+@import "../utilities";
+
+.card-container {
+  width: 250px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(149, 143, 143, .2);
+  padding: 20px 20px;
+  position: relative;
+}
+
+.desconto {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  z-index: 1;
+}
+
+.imagem {
+  cursor: pointer;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    height: 3px;
+    width: 80%;
+    background-color: rgba(149, 143, 143, .2);
+  }
+}
+
+.titulo {
+  color: #958f8f;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.titulo span:nth-child(1) {
+  font-weight: 700;
+}
+
+.titulo span:nth-child(2) {
+  font-weight: 400;
+  display: block;
+}
+
+.preco {
+  color: $font-color-primary;
+  &-anterior {
+    text-decoration: line-through;
+    font-weight: $font-weight-1;
+    font-size: $font-size-small;
+    line-height: $line-height-3;
+    display: inline;
+  }
+
+  &-atual {
+    font-weight: $font-weight-3;
+    font-size: $font-size-subtitle;
+    line-height: $line-height-4;
+    display: inline;
+    span:nth-child(2) {
+      color: $font-color-orange;
+    }
+  }
+}
+
+.buttons {
+  width: 100%;
+    display: grid;
+    grid-template-columns: 65px 1fr;
+}
+
+.icones {
+  display: flex;
+  & > * {
+    margin-right: 10px;
+  }
+}

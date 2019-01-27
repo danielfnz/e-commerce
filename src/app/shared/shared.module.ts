@@ -5,15 +5,16 @@ import { CommonModule } from '@angular/common';
 import { Services } from './services/_services';
 import { SlickModule } from 'ngx-slick';
 import { RouterModule } from '@angular/router';
+import { VirgulaPipe } from './pipes/virgula.pipe';
 
 @NgModule({
-  declarations: [Components, Pipes],
+  declarations: [Components, Pipes, VirgulaPipe],
   imports: [
     CommonModule,
     SlickModule.forRoot(),
     RouterModule,
   ],
   providers : [Services],
-  exports: [Components, Pipes],
+  exports: [Components, Pipes, VirgulaPipe],
 })
 export class SharedModule { }

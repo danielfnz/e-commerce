@@ -1,16 +1,22 @@
 import { ProductComponent } from './product.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {CadastroProdutoComponent} from './cadastro-produto/cadastro-produto.component';
 
 const routes: Routes = [
   {
+    path: 'new',
+    component : CadastroProdutoComponent
+  },
+  {
     path: '',
-    component : ProductComponent,
+    component : ProductComponent
   },
   {
     path: ':id',
-    component : ProductComponent,
+    component : ProductComponent
   },
+
 ];
 
 @NgModule({
