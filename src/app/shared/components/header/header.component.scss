@@ -16,4 +16,38 @@ header {
   }
 }
 
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .value {
+    font-size: 16px;
+    text-align: right;
+    font-weight: 600;
+    color: #ef7000;
+    margin-right: 12px;
+    min-width: 88px;
+  }.quantity {
+    background-image : url(https://organomix.vteximg.com.br/arquivos/omix-spritesheet-00.png);
+    background-position : -203px -131px;
+    width:30px;
+    height: 40px;
+    .totalitems {
+      position: absolute;
+      bottom: 0px;
+      right: 90px;
+      /* min-width: 15px; */
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      text-align: center;
+      /* line-height: 15px; */
+      background: #f03c3f;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+    }
+  }
+}
+
 }
