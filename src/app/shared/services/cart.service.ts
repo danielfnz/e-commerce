@@ -17,10 +17,11 @@ export class CartService {
       this.valorTotal += Number(item.precoPromocional) * Number(item.quantidade);
     });
   }
-  clear(){
-    this.carrinho = []
+
+  clear() {
+    this.carrinho = [];
   }
-  
+
   addCarrinho(item: Product) {
     this.carrinho.push(item);
     this.valorTotal += item.precoPromocional * item.quantidade;
@@ -28,11 +29,14 @@ export class CartService {
     localStorage.setItem('carrinho', JSON.stringify(this.carrinho));
   }
 
-  removeItem(item:Product){
-    this.carrinho.splice(this.carrinho.indexOf(item) ,1)
+  removeItem(item: Product) {
+    this.carrinho.splice(this.carrinho.indexOf(item) , 1);
+    this.valorTotal -= item.precoPromocional * item.quantidade;
+    this.quantidadeTotal -= Number(item.quantidade);
   }
 
   getCarrinho() {
     return this.carrinho;
   }
+
 }
