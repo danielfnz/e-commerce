@@ -24,6 +24,10 @@ export class CartService {
     localStorage.setItem('carrinho', JSON.stringify(this.carrinho));
   }
 
+  removeItem(item:Product){
+    this.carrinho.splice(this.carrinho.indexOf(item) ,1)
+  }
+
   getCarrinho() {
     return this.carrinho;
   }
