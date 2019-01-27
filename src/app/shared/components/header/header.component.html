@@ -30,9 +30,9 @@
 
           <div class="dropdown-menu carrinho" *dropdownMenu>
               <div *ngFor="let item of carrinho">
-                  <div class="row">
+                  <div style="flex-direction: row; justify-content: flex-start; display:flex;">
                       <div class="imagem">
-                          <img [src]="item.imagens[0]" width="50" height="50" />
+                          <img [src]="item.imagens[0]" width="40" height="40" />
                       </div>
                       <div class="titulo">
                           <b routerLink="/product/{{item.id}}">{{ item.nome }}</b>
