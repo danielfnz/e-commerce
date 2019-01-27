@@ -220,7 +220,7 @@ export const initialProducts: Product[] = [
     },
   },
   {
-    id: 10,
+    id: 11,
     nome: 'BERTALHA - ORGANOMIX',
     marca: 'ORGANOMIX',
     categoria : 'verdura',

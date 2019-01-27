@@ -6,6 +6,27 @@ body {
   font-family: 'Mada', sans-serif;
 }
 
+
+/* unvisited link */
+a:link {
+  text-decoration:none;
+}
+
+/* visited link */
+a:visited {
+  text-decoration:none;
+}
+
+/* mouse over link */
+a:hover {
+  text-decoration:none;
+}
+
+/* selected link */
+a:active {
+  text-decoration:none;
+}
+
 body a,
 button {
   transition: 0.5s all;

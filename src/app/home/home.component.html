@@ -1,17 +1,32 @@
-
 <app-header></app-header>
 
-<carousel>
-    <slide routerLink="/product/1">
-      <img src="https://organomix.vteximg.com.br/arquivos/ids/37351/01-geladeira-home-20181210.jpg?v=636800499939000000" alt="first slide" style="display: block; width: 100%;">
-    </slide>
-    <slide routerLink="/product/2">
-      <img src="https://organomix.vteximg.com.br/arquivos/ids/37484/01-pescados-home-20190107.jpg?v=636824762742030000" alt="second slide" style="display: block; width: 100%;">
-    </slide>
-</carousel>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <carousel>
+          <slide routerLink="/product/1">
+            <img
+              src="https://uploaddeimagens.com.br/images/001/859/429/original/Captura_de_tela_de_2019-01-27_14-37-04.png?1548607048"
+              alt="first slide"
+              style="display: block; width: 100%;"
+            />
+          </slide>
+          <slide routerLink="/product/2">
+            <img
+              src="https://organomix.vteximg.com.br/arquivos/ids/37693/03-flv-departamento-20190125.jpg?v=636840179848100000"
+              alt="second slide"
+              style="display: block; width: 100%;"
+            />
+          </slide>
+        </carousel>
+      </div>
+    </div>
+  </div>
+</section>
 
-<app-catalogo descricao='Legumes' categoria='legume'></app-catalogo>
-<app-catalogo descricao='Verduras' categoria='verdura'></app-catalogo>
-<app-catalogo descricao='Produtos mais vendidos'></app-catalogo>
+<app-catalogo descricao="Legumes" categoria="legume"></app-catalogo>
+<app-catalogo descricao="Verduras" categoria="verdura"></app-catalogo>
+<app-catalogo descricao="Produtos mais vendidos"></app-catalogo>
 
 <app-footer></app-footer>
