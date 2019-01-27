@@ -243,6 +243,8 @@ MIT
 @angular/common
 MIT
 
+ngx-bootstrap/positioning
+
 @angular/router
 MIT
 
@@ -251,6 +253,10 @@ MIT
 
 @angular/forms
 MIT
+
+ngx-bootstrap/dropdown
+
+ngx-bootstrap/component-loader
 
 tslib
 Apache-2.0
@@ -313,11 +319,7 @@ END OF TERMS AND CONDITIONS
 
 ngx-bootstrap/utils
 
-ngx-bootstrap/component-loader
-
-ngx-bootstrap/positioning
-
-ngx-bootstrap/dropdown
+undefined
 
 ngx-bootstrap/tooltip
 
