@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {ProductService} from '../../shared/services/product.service';
 import {Product} from '../../shared/model/product.model';
 import {CartService} from '../../shared/services/cart.service';
@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private productService: ProductService,
     private cartService: CartService) { }
 
@@ -35,6 +36,7 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   addToCart() {
     this.cartService.addCarrinho(this.produto);
+    this.router.navigate([`/cart`]);
   }
 
   alteraQuantidade(e) {
