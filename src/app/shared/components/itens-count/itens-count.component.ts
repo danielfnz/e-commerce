@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
 
 @Component({
   selector: 'app-itens-count',
@@ -48,23 +48,23 @@ import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 })
 export class ItensCountComponent {
 
-  counter = 1;
+  @Input() quantidade = 1;
 
   @Output() enviaQuantidade = new EventEmitter<number>();
 
   get counterValue() {
-      return this.counter <= 9 ? '0' + this.counter : this.counter;
+      return this.quantidade <= 9 ? '0' + this.quantidade : this.quantidade;
   }
 
   incrementCounter() {
     // noinspection TsLint
-    this.counter !== 99 ? this.counter++ : null;
-    this.enviaQuantidade.emit(this.counter);
+    this.quantidade !== 99 ? this.quantidade++ : 0;
+    this.enviaQuantidade.emit(this.quantidade);
   }
 
   decrementCounter() {
     // noinspection TsLint
-    this.counter !== 1 ? this.counter-- : null;
-    this.enviaQuantidade.emit(this.counter);
+    this.quantidade !== 0 ? this.quantidade-- : 0;
+    this.enviaQuantidade.emit(this.quantidade);
   }
 }

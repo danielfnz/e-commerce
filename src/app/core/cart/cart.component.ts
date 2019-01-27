@@ -8,24 +8,30 @@ import { CartService } from '../../shared/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private CartService: CartService) { }
+  public carrinhoList = [];
+
+  constructor(public CartService: CartService) { }
 
   ngOnInit() {
-  }
-  
-  carrinho(): any[] { 
-    return this.CartService.carrinho;
-  }
-
-  clear(){
-    this.CartService.carrinho;
+    this.CartService.getCarrinho().subscribe(carrinho => {
+      this.carrinhoList = carrinho;
+    });
   }
 
-  removeItem(item: any){
-    this.CartService.removeItem(item)
+  clear() {
+    this.CartService.limparCarrinho();
   }
 
-  addCarrinho(item: any){
-    this.CartService.addCarrinho(item)
+  removeItem(item: any) {
+    this.CartService.removeItem(item);
+  }
+
+  addCarrinho(item: any) {
+    this.CartService.addCarrinho(item);
+  }
+
+  alteraQuantidade(item, quantidade) {
+    item.quantidade = quantidade;
+   this.CartService.alterarQuantidade(item);
   }
 }

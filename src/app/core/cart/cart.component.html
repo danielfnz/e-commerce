@@ -1,38 +1,26 @@
 <app-header></app-header>
-<link
-  href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-  rel="stylesheet"
-  id="bootstrap-css"
-/>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <!-- INICIO DO CARRINHO -->
-
-<link
-  rel="stylesheet"
-  href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
-/>
 
 <div class="container">
   <br />
 
   <div class="card">
-    <div *ngIf="!carrinho().length">
-      <p class="text-center"> 
+    <div *ngIf="!carrinhoList.length" class="text-center">
+      <h3 style="margin:50px;">
         Seu carrinho esta vazio!
-      </p>
+      </h3>
+      <button class="btn btn-outline-primary" routerLink="/" style="margin-bottom:50px;">Voltar  a loja</button>
     </div>
-    <table class="table table-hover shopping-cart-wrap">
+    <table class="table table-hover shopping-cart-wrap" *ngIf="carrinhoList.length">
       <thead class="text-muted">
         <tr>
-          <th scope="col">Produto</th>
-          <th scope="col" width="120">Quantidade</th>
-          <th scope="col" width="120">Preço</th>
-          <th scope="col" width="200" class="text-right">Ação</th>
+          <th scope="col" width="45%">Produto</th>
+          <th scope="col" width="5%">Quantidade</th>
+          <th scope="col" width="20%">Preço Unitário</th>
+          <th scope="col" width="20%">SubTotal</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let carrinhos of carrinho()">
+        <tr *ngFor="let carrinhos of carrinhoList">
           <td>
             <figure class="media">
               <div class="img-wrap">
@@ -45,41 +33,41 @@
                 <h6 class="title text-truncate"></h6>
                 <dl class="param param-inline small">
                   <dt>{{carrinhos.nome}}</dt>
-                  <dd>{{carrinhos.marca}}</dd>
                 </dl>
               </figcaption>
             </figure>
           </td>
           <td>
-            <select class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-            </select>
+            <app-itens-count [quantidade]="carrinhos?.quantidade"
+            (enviaQuantidade)="alteraQuantidade(carrinhos, $event)"
+          ></app-itens-count>
           </td>
           <td>
             <div class="price-wrap">
-              <var class="price">R$ 7,00</var>
-              <small class="text-muted">(Em reais)</small>
+              <var class="price">{{carrinhos.preco | currency: "BRL":true}}</var>
             </div>
             <!-- price-wrap .// -->
           </td>
-          <td class="text-right">
-            <a
-              title=""
-              href=""
-              class="btn btn-outline-success"
-              data-toggle="tooltip"
-              data-original-title="Save to Wishlist"
-            >
-              <i class="fa fa-heart"></i
-            ></a>
-            <a (click)="removeItem(item)" class="btn btn-outline-danger"> × Remover</a>
+          <td>
+            <div class="price-wrap">
+              <var class="price">{{carrinhos.quantidade  * carrinhos.preco | currency: "BRL":true}}</var>
+            </div>
+            <!-- price-wrap .// -->
           </td>
         </tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <th><button class="btn btn-outline-danger" (click)="clear()">Limpar carrinho</button></th>
+          <th colspan="2" style="text-align:right">Subtotal:</th>
+          <th>{{CartService.valorTotal | currency: "BRL":true}}</th>
+        </tr>
+      </tfoot>
     </table>
+  </div>
+  <div style="display:flex; justify-content: space-between; margin-top:10px;"  *ngIf="carrinhoList.length">
+      <button class="btn btn-outline-primary" routerLink="/">Continuar Comprando</button>
+      <button class="btn btn-success" routerLink="/checkout">Finalizar Compra</button>
   </div>
 </div>
 <br />

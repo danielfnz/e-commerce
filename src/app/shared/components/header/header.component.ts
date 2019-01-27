@@ -8,10 +8,12 @@ import { CartService } from '../../services/cart.service';
 })
 export class HeaderComponent implements OnInit {
 
-  public carrinho;
+  public carrinho = [];
 
   constructor(public cartService: CartService) {
-    this.carrinho = this.cartService.getCarrinho();
+    this.cartService.getCarrinho().subscribe(carrinhoList => {
+      this.carrinho = carrinhoList;
+    });
    }
 
   ngOnInit() {
