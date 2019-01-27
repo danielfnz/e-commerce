@@ -2,24 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <h3>Produtos mais vendidos</h3>
-        <ngx-slick
-          class="carousel"
-          #slickModal="slick-modal"
-          [config]="slideConfig">
-          <div ngxSlickItem *ngFor="let produto of produtos" class="product">
-            <div class="card" style="width: 100%">
-              <div class="card-body">
-                <div class="linkProduto" routerLink="/product/{{produto.idProduto}}">
-                  <b class="card-title">{{ produto?.descricaoProduto }}</b>
-                  <img src="{{ produto?.img }}" class="card-img-top" alt="..." />
-                </div>
-                <div class="card-body">
-                  {{ produto?.quantidade }}
-                  <div class="btn btn-primary" (click)="addCarrinho(produto)">Comprar</div>
-                </div>
-              </div>
-            </div>
+        <h3>{{descricao}}</h3>
+        <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+          <div ngxSlickItem *ngFor="let produto of produtosList" class="slide">
+          <app-card [produto]="produto" ></app-card>
           </div>
         </ngx-slick>
       </div>

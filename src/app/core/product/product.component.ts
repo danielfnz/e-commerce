@@ -1,6 +1,8 @@
-import { CatalogoService } from './../../shared/services/catalogo.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {ProductService} from '../../shared/services/product.service';
+import {Product} from '../../shared/model/product.model';
+import {CartService} from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -9,26 +11,34 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductComponent implements OnInit, OnDestroy {
 
-  private idProduto: number;
-  private sub: any;
-
   public produto;
+  produtosList: Product[] = [];
+  private sub: any;
+  quantidade = 1;
+  slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
 
   constructor(
     private route: ActivatedRoute,
-    private catalogoService: CatalogoService) {
-
-   }
+    private productService: ProductService,
+    private cartService: CartService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.idProduto = params.id;
-      this.produto =  this.catalogoService.getProduto(Number(params.id));
-   });
+      this.produto = this.productService.getProductById(Number(params.id));
+      this.produtosList = this.productService.getAllProducts();
+    });
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
+  addToCart() {
+    this.cartService.addCarrinho(this.produto);
+  }
+
+  alteraQuantidade(e) {
+    this.produto.quantidade = e;
+    this.quantidade = e;
+  }
 }

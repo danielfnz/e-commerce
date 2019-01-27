@@ -1,3 +1,4 @@
+import { Product } from './../model/product.model';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,12 +8,20 @@ export class CartService {
 
   public carrinho = [];
   public valorTotal = 0;
+  public quantidadeTotal = 0;
 
-  constructor() { }
+  constructor() {
+    this.carrinho = localStorage.getItem('carrinho') ? JSON.parse(localStorage.getItem('carrinho')) : [];
+    this.carrinho.forEach(item => {
+      this.quantidadeTotal += Number(item.quantidade);
+    });
+  }
 
-  addCarrinho(item) {
+  addCarrinho(item: Product) {
     this.carrinho.push(item);
     this.valorTotal += item.preco * item.quantidade;
+    this.quantidadeTotal += Number(item.quantidade);
+    localStorage.setItem('carrinho', JSON.stringify(this.carrinho));
   }
 
   getCarrinho() {
