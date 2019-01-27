@@ -4,7 +4,7 @@
       <div class="col-sm">
         <h3>{{descricao}}</h3>
         <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
-          <div ngxSlickItem *ngFor="let produto of produtosList" class="slide">
+          <div ngxSlickItem *ngFor="let produto of produtosList" class="slide" style="padding:5px">
           <app-card [produto]="produto" ></app-card>
           </div>
         </ngx-slick>

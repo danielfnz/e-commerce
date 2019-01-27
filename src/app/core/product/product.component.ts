@@ -12,10 +12,10 @@ import {CartService} from '../../shared/services/cart.service';
 export class ProductComponent implements OnInit, OnDestroy {
 
   public produto;
-  produtosList: Product[] = [];
+  public produtosList: Product[] = [];
   private sub: any;
-  quantidade = 1;
-  slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
+  public quantidade = 1;
+  public slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
 
   constructor(
     private route: ActivatedRoute,
@@ -25,8 +25,11 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.produto = this.productService.getProductById(Number(params.id));
-      this.produtosList = this.productService.getAllProducts();
+      if (Number(params.id) <= this.productService.getProductsLength()) {
+        this.produto = this.productService.getProductById(Number(params.id));
+      } else {
+        this.router.navigate([`/`]);
+      }
     });
   }
 

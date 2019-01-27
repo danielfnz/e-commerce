@@ -9,13 +9,14 @@ const routes: Routes = [
     component : CadastroProdutoComponent
   },
   {
-    path: '',
-    component : ProductComponent
-  },
-  {
     path: ':id',
     component : ProductComponent
   },
+  {
+		path: '**',
+		redirectTo: '/product/1',
+		pathMatch: 'full'
+	}
 
 ];
 

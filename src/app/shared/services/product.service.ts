@@ -21,7 +21,15 @@ export class ProductService {
     return this.produtos;
   }
 
+  getProductsLength() {
+    return this.produtos.length;
+  }
+
   getProductsByCategoria(categoria) {
+    return this.produtos.filter(obj => obj.categoria === categoria);
+  }
+
+  getProductsByCategoriaSort(categoria) {
     return this.produtos.filter(obj => obj.categoria === categoria).map((a) => ({sort: Math.random(), value: a}))
     .sort((a, b) => a.sort - b.sort)
     .map((a) => a.value);

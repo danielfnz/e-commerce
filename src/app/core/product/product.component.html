@@ -1,67 +1,83 @@
 <app-header></app-header>
 
 <section>
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+          <li class="breadcrumb-item" aria-current="page" routerLink="/category/{{produto.categoria}}"><a routerLink="/category/{{produto.categoria}}">{{produto.categoria}}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{produto.nome}}</li>
+        </ol>
+      </nav>
+    </div>
+
   <div class="product">
-  <div class="product-main-image">
-    <app-images-galery [imagens]="produto.imagens"></app-images-galery>
-  </div>
-  <div class="product-main-information">
-    <div class="desconto">
-      <app-desconto [valor]="produto.preco" [valorComDesconto]="produto.precoPromocional"></app-desconto>
+    <div class="product-main-image">
+      <app-images-galery [imagens]="produto?.imagens"></app-images-galery>
     </div>
-    <div class="principal">
-      <div class="title">
-        <div>{{produto.nome}}</div>
-        <div>{{produto.marca}}</div>
+    <div class="product-main-information">
+      <div class="desconto">
+        <app-desconto
+          [valor]="produto?.preco"
+          [valorComDesconto]="produto?.precoPromocional"
+        ></app-desconto>
       </div>
-
-      <div class="product-item-description">
-        <app-product-item-description *ngFor="let icon of produto.icones" [icon]="icon"
-                                      [label]="true"></app-product-item-description>
-      </div>
-
-      <div class="preco">
-        <div class="preco-anterior">
-          De R$ {{produto.preco | virgula}}
+      <div class="principal">
+        <div class="title">
+          <div>{{ produto?.nome }}</div>
+          <div>{{ produto?.marca }}</div>
         </div>
-        <div class="preco-atual">
-          <span>Por </span>
-          <span>R$ {{produto.precoPromocional | virgula}}</span>
+
+        <div class="product-item-description">
+          <app-product-item-description
+            *ngFor="let icon of produto?.icones"
+            [icon]="icon"
+            [label]="true"
+          ></app-product-item-description>
+        </div>
+
+        <div class="preco">
+          <div class="preco-anterior">De R$ {{ produto?.preco | virgula }}</div>
+          <div class="preco-atual">
+            <span>Por </span>
+            <span>R$ {{ produto?.precoPromocional | virgula }}</span>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <app-itens-count
+            (enviaQuantidade)="alteraQuantidade($event)"
+          ></app-itens-count>
+          <app-buttom
+            [label]="'Comprar'"
+            class="btn-big"
+            (click)="addToCart()"
+          ></app-buttom>
         </div>
       </div>
+    </div>
 
-      <div class="buttons">
-        <app-itens-count (enviaQuantidade)="alteraQuantidade($event)"></app-itens-count>
-        <app-buttom [label]="'Comprar'" class="btn-big" (click)="addToCart()"></app-buttom>
-      </div>
+    <div class="product-description">
+      <app-tab-panel>
+        <app-tab title="Descricao">
+          <span>{{ produto?.descricao.titulo }}</span>
+          <p>{{ produto?.descricao.conteudo }}</p>
+        </app-tab>
 
+        <app-tab title="Voce Sabia ?">
+          <span>{{ produto?.voceSabia.titulo }}</span>
+          <p>{{ produto?.voceSabia.conteudo }}</p>
+        </app-tab>
+      </app-tab-panel>
+    </div>
+
+    <div class="product-similar">
+        <app-catalogo descricao="Produtos mais vendidos"></app-catalogo>
     </div>
   </div>
-
-
-  <div class="product-description">
-    <app-tab-panel>
-      <app-tab title="Descricao">
-        <span>{{produto.descricao.titulo}}</span>
-        <p>{{produto.descricao.conteudo}}</p>
-      </app-tab>
-
-      <app-tab title="Voce Sabia ?">
-        <span>{{produto.voceSabia.titulo}}</span>
-        <p>{{produto.voceSabia.conteudo}}</p>
-      </app-tab>
-    </app-tab-panel>
-  </div>
-
-  <div class="product-similar">
-    <h3>Produtos mais vendidos</h3>
-    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
-      <div ngxSlickItem *ngFor="let produto of produtosList" class="slide">
-      <app-card [produto]="produto" ></app-card>
-      </div>
-    </ngx-slick>
-  </div>
-  </div>
+</div>
 </section>
+
 
 <app-footer></app-footer>

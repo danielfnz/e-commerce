@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { BsDropdownModule, ModalModule, TooltipModule } from 'ngx-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BsDropdownModule, TooltipModule, ModalModule } from 'ngx-bootstrap';
 import { CartModule } from './core/cart/cart.module';
-import { RouterModule } from '@angular/router';
-import {ProductService} from './shared/services/product.service';
+
 @NgModule({
   declarations: [
     AppComponent,

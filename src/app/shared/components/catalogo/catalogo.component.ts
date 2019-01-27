@@ -21,7 +21,7 @@ export class CatalogoComponent implements AfterContentInit {
     ) { }
 
   ngAfterContentInit(): void {
-    if (this.categoria) { this.produtosList = this.produtosService.getProductsByCategoria(this.categoria); }
+    if (this.categoria) { this.produtosList = this.produtosService.getProductsByCategoriaSort(this.categoria); }
     else { this.produtosList = this.produtosService.getAllProducts(); }
   }
 

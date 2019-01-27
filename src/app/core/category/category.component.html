@@ -1,0 +1,27 @@
+<app-header></app-header>
+<section>
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ categoria }}
+        </li>
+      </ol>
+    </nav>
+
+    <h3>{{ categoria }}</h3>
+
+    <div class="row">
+      <div
+        *ngFor="let produto of produtosList"
+        class="col-xl-3 col-lg-3 col-sm-4 col-md-4  col-xs-12"
+        style="padding-bottom:10px"
+      >
+        <app-card [produto]="produto"></app-card>
+      </div>
+    </div>
+  </div>
+</section>
+<app-catalogo descricao="Produtos mais vendidos"></app-catalogo>
+<app-footer></app-footer>
