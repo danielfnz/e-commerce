@@ -15,6 +15,7 @@ import {DescontoComponent} from './desconto/desconto.component';
 import {CadastroProdutoComponent} from './cadastro-produto/cadastro-produto.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SlickModule} from 'ngx-slick';
+import {ProductService} from '../../shared/services/product.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {SlickModule} from 'ngx-slick';
     SharedModule,
     ReactiveFormsModule,
     SlickModule.forRoot(),
-  ]
+  ],
+  providers: []
 })
 export class ProductModule { }

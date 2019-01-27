@@ -7,7 +7,7 @@
   <div class="desconto">
   <app-desconto [valor]="produto.preco" [valorComDesconto]="produto.precoPromocional" [tamanho]="'small'" ></app-desconto>
   </div>
-  <div class="imagem">
+  <div class="imagem" (click)="openProduct()">
     <img [src]="produto.imagens[0]" width="100" height="100">
   </div>
 
@@ -26,8 +26,8 @@
   </div>
 
   <div class="buttons">
-    <app-itens-count></app-itens-count>
-    <app-buttom [label]="'Comprar'" class="btn-big"></app-buttom>
+    <app-itens-count (enviaQuantidade)="alteraQuantidade($event)" ></app-itens-count>
+    <app-buttom [label]="'Comprar'" class="btn-big" (click)="addToCart()" ></app-buttom>
   </div>
 
 </div>

@@ -30,7 +30,7 @@
       </div>
 
       <div class="buttons">
-        <app-itens-count></app-itens-count>
+        <app-itens-count (enviaQuantidade)="alteraQuantidade($event)"></app-itens-count>
         <app-buttom [label]="'Comprar'" class="btn-big"></app-buttom>
       </div>
 
