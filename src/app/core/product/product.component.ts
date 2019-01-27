@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, EventEmitter, Output, Input} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {ProductService} from '../../shared/services/product.service';
 import {Product} from '../../shared/model/product.model';
@@ -17,6 +17,9 @@ export class ProductComponent implements OnInit, OnDestroy {
   public quantidade = 1;
   public slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
 
+  @Input() menuItem: Product  
+  @Output() add = new EventEmitter()
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -24,26 +27,30 @@ export class ProductComponent implements OnInit, OnDestroy {
     private cartService: CartService) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      if (Number(params.id) <= this.productService.getProductsLength()) {
-        this.produto = this.productService.getProductById(Number(params.id));
-      } else {
-        this.router.navigate([`/`]);
-      }
-    });
+    // this.sub = this.route.params.subscribe(params => {
+    //   if (Number(params.id) <= this.productService.getProductsLength()) {
+    //     this.produto = this.productService.getProductById(Number(params.id));
+    //   } else {
+    //     this.router.navigate([`/`]);
+    //   }
+    // });
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
-  addToCart() {
-    this.cartService.addCarrinho(this.produto);
-    this.router.navigate([`/cart`]);
-  }
+  // addToCart() {
+  //   this.cartService.addCarrinho(this.produto);
+  //   this.router.navigate([`/cart`]);
+  // }
 
   alteraQuantidade(e) {
     this.produto.quantidade = e;
     this.quantidade = e;
+  }
+//teste
+  addToCart(){
+    this.add.emit(this.menuItem)
   }
 }
