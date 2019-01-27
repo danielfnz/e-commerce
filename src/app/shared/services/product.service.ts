@@ -21,6 +21,12 @@ export class ProductService {
     return this.produtos;
   }
 
+  getProductsByCategoria(categoria) {
+    return this.produtos.filter(obj => obj.categoria === categoria).map((a) => ({sort: Math.random(), value: a}))
+    .sort((a, b) => a.sort - b.sort)
+    .map((a) => a.value);
+  }
+
   insertNewProduct(product: Product) {
     const id = this.getAllProducts()[this.getAllProducts().length - 1].id;
     product.id = id + 1;
