@@ -1,24 +1,30 @@
-import {AfterContentInit, Component, Input, OnInit} from '@angular/core';
-import {iconsRef} from '../util';
-import {DomSanitizer} from '@angular/platform-browser';
+import {Component, Input} from '@angular/core';
 import {Product} from '../../../shared/model/product.model';
+import {Router} from '@angular/router';
+import {CartService} from '../../../shared/services/cart.service';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements AfterContentInit {
-
-  constructor() {
-
-  }
+export class CardComponent {
 
   @Input() produto: Product;
+  quantidade = 1;
 
-  ngAfterContentInit(): void {
+  constructor(private router: Router, private cartService: CartService) { }
 
+  openProduct() {
+    this.router.navigate([`/product/${this.produto.id}`]);
   }
 
+  addToCart() {
+    this.cartService.addCarrinho(this.produto);
+  }
+
+  alteraQuantidade(e) {
+    this.quantidade = e;
+  }
 
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ProductService} from '../../../shared/services/product.service';
 import {Router} from '@angular/router';
@@ -33,14 +33,22 @@ export class CadastroProdutoComponent {
         url3: '',
         url4: '',
       }),
+      icones: this.fb.group({
+        milk: '',
+        gluten: '',
+        sugar: '',
+        organic: '',
+        vegetarian: '',
+      }),
     });
   }
 
   cadastrarNovoProduto() {
     const product = Object.assign({}, this.form.value);
     product.imagens = Object.values(product.imagens).filter(v => v !== '');
+    product.icones = Object.entries(product.icones).map(v => v[1] ? v[0] : '').filter(v => v !== '');
     this.productService.insertNewProduct(product);
-    // this.router.navigate(['/home'], {replaceUrl: true});
-    console.log(this.productService.getAllProducts());
+    this.router.navigate(['/home'], {replaceUrl: true});
   }
+
 }

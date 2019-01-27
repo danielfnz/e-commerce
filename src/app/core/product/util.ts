@@ -1,5 +1,8 @@
 import {Product} from '../../shared/model/product.model';
 
+export const STORAGE_KEY = 'products';
+
+
 export const iconsRef = {
   milk: {
     title: 'Sem Lactose',

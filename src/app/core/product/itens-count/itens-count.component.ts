@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-itens-count',
@@ -57,7 +57,7 @@ export class ItensCountComponent {
   }
 
   incrementCounter() {
-      // noinspection TsLint
+    // noinspection TsLint
     this.counter !== 99 ? this.counter++ : null;
     this.enviaQuantidade.emit(this.counter);
   }

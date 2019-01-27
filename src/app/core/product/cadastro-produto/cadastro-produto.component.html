@@ -1,67 +1,109 @@
 <app-header></app-header>
 
-<div class="container">
-  <div class="row align-items-center">
-    <form [formGroup]="form" (submit)="cadastrarNovoProduto()" >
-      <div class="form-group">
-        <label>Nome</label>
-        <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
-      </div>
+<div class="container-fluid">
+  <form [formGroup]="form">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6">
 
-      <div class="form-group">
-        <label>Marca</label>
-        <input type="text" class="form-control" formControlName="marca" placeholder="Marca">
-      </div>
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
+          </div>
 
-      <div class="form-group">
-        <label>Preco sem Desconto</label>
-        <input type="text" class="form-control" formControlName="preco" placeholder="Preco sem Desconto">
-      </div>
+          <div class="form-group">
+            <label>Marca</label>
+            <input type="text" class="form-control" formControlName="marca" placeholder="Marca">
+          </div>
 
-      <div class="form-group">
-        <label>Preco Promocional</label>
-        <input type="text" class="form-control" formControlName="precoPromocional" placeholder="Preco Promocional">
-      </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Preco sem Desconto</label>
+              <input type="text" class="form-control" formControlName="preco" placeholder="Preco sem Desconto">
+            </div>
 
-      <div formGroupName="descricao">
-        <div class="form-group">
-          <label>Descricao Titulo</label>
-          <input type="text" class="form-control" formControlName="titulo" placeholder="Preco Promocional">
+            <div class="form-group col-md-6">
+              <label>Preco Promocional</label>
+              <input type="text" class="form-control" formControlName="precoPromocional"
+                     placeholder="Preco Promocional">
+            </div>
+          </div>
+
+
+          <div formGroupName="imagens">
+            <div class="form-group">
+              <label>Url de fotos do Produto</label>
+              <input type="text" class="form-control" formControlName="url1" placeholder="URL">
+              <input type="text" class="form-control" formControlName="url2" placeholder="URL">
+              <input type="text" class="form-control" formControlName="url3" placeholder="URL">
+              <input type="text" class="form-control" formControlName="url4" placeholder="URL">
+            </div>
+          </div>
+
+          <div formGroupName="icones">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="milk" formControlName="milk">
+              <label class="form-check-label" for="inlineCheckbox1">Sem Lactose</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="gluten"
+                     formControlName="gluten">
+              <label class="form-check-label" for="inlineCheckbox2">Sem Gluten</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="sugar"
+                     formControlName="sugar">
+              <label class="form-check-label" for="inlineCheckbox3">Sem Adicao de Acucar</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="organic"
+                     formControlName="organic">
+              <label class="form-check-label" for="inlineCheckbox4">Organico</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="vegetarian"
+                     formControlName="vegetarian">
+              <label class="form-check-label" for="inlineCheckbox5">Vegetariano</label>
+            </div>
+          </div>
+
         </div>
+        <div class="col-md-6">
 
-        <div class="form-group">
-          <label>Descricao Conteudo</label>
-          <textarea type="text" class="form-control" rows="5" formControlName="conteudo"
-                    placeholder="Descricao"></textarea>
+          <div formGroupName="descricao">
+            <div class="form-group">
+              <label>Descricao Titulo</label>
+              <input type="text" class="form-control" formControlName="titulo" placeholder="Preco Promocional">
+            </div>
+
+            <div class="form-group">
+              <label>Descricao Conteudo</label>
+              <textarea type="text" class="form-control" rows="5" formControlName="conteudo"
+                        placeholder="Descricao"></textarea>
+            </div>
+          </div>
+
+          <div formGroupName="voceSabia">
+            <div class="form-group">
+              <label>Voce Sabia Titulo</label>
+              <input type="text" class="form-control" formControlName="titulo" placeholder="Preco Promocional">
+            </div>
+
+            <div class="form-group">
+              <label>Voce Sabia Conteudo</label>
+              <textarea type="text" class="form-control" rows="5" formControlName="conteudo"
+                        placeholder="Voce Sabia ?"></textarea>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <div formGroupName="voceSabia">
-        <div class="form-group">
-          <label>Voce Sabia Titulo</label>
-          <input type="text" class="form-control" formControlName="titulo" placeholder="Preco Promocional">
-        </div>
-
-        <div class="form-group">
-          <label>Voce Sabia Conteudo</label>
-          <textarea type="text" class="form-control" rows="5" formControlName="conteudo"
-                    placeholder="Voce Sabia ?"></textarea>
-        </div>
-      </div>
-
-      <div formGroupName="imagens">
-        <div class="form-group">
-          <label>Url de fotos do Produto</label>
-          <input type="text" class="form-control" formControlName="url1" placeholder="URL">
-          <input type="text" class="form-control" formControlName="url2" placeholder="URL">
-          <input type="text" class="form-control" formControlName="url3" placeholder="URL">
-          <input type="text" class="form-control" formControlName="url4" placeholder="URL">
-        </div>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
-    </form>
-  </div>
+    </div>
+    <div class="offset-5">
+      <br>
+        <button (click)="cadastrarNovoProduto()" class="btn btn-primary">Cadastrar</button>
+    </div>
+  </form>
 </div>
 
 <app-footer></app-footer>
