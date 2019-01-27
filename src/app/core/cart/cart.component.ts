@@ -12,13 +12,13 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  carrinho(): any[] { 
+    return this.CartService.carrinho;
+  }
 
   clear(){
     this.CartService.carrinho;
-  }
-
-  carrinho(): any[] { 
-    return this.CartService.carrinho;
   }
 
   removeItem(item: any){
