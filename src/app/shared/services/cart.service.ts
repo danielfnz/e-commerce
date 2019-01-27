@@ -14,13 +14,13 @@ export class CartService {
     this.carrinho = localStorage.getItem('carrinho') ? JSON.parse(localStorage.getItem('carrinho')) : [];
     this.carrinho.forEach(item => {
       this.quantidadeTotal += Number(item.quantidade);
-      this.valorTotal += Number(item.preco) * Number(item.quantidade);
+      this.valorTotal += Number(item.precoPromocional) * Number(item.quantidade);
     });
   }
 
   addCarrinho(item: Product) {
     this.carrinho.push(item);
-    this.valorTotal += item.preco * item.quantidade;
+    this.valorTotal += item.precoPromocional * item.quantidade;
     this.quantidadeTotal += Number(item.quantidade);
     localStorage.setItem('carrinho', JSON.stringify(this.carrinho));
   }

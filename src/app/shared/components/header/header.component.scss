@@ -48,6 +48,22 @@ header {
       font-weight: 700;
     }
   }
+  .carrinho {
+    width: 100% !important;
+    .titulo {
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .valorTotal {
+    padding:0 10px 0px 10px;
+  }
+  .botoes {
+    display: flex;
+    justify-content: space-between;
+    padding:0 10px 0px 10px;
+  }
 }
 
 }

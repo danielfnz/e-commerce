@@ -8,7 +8,11 @@ import { CartService } from '../../services/cart.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public cartService: CartService) { }
+  public carrinho;
+
+  constructor(public cartService: CartService) {
+    this.carrinho = this.cartService.getCarrinho();
+   }
 
   ngOnInit() {
   }

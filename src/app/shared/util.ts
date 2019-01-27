@@ -27,7 +27,7 @@ export const iconsRef = {
 export const initialProducts: Product[] = [
   {
     id: 1,
-    nome: 'TOMATE ITALIANO ORGÂNICO 500G - SOLO VIVO',
+    nome: 'TOMATE ITALIANO ORGÂNICO 500G',
     marca: 'SOLO VIVO',
     categoria : 'legumes',
     preco: 11.29,
@@ -46,7 +46,7 @@ export const initialProducts: Product[] = [
   },
   {
     id: 2,
-    nome: 'AGRIÃO ORGÂNICO - SOLO VIVO',
+    nome: 'AGRIÃO ORGÂNICO',
     marca: 'SOLO VIVO',
     categoria : 'verduras',
     preco: 5.55,
@@ -65,7 +65,7 @@ export const initialProducts: Product[] = [
   },
   {
     id: 3,
-    nome: 'ABÓBORA JAPONESA ORGÂNICA 600G - SOLO VIVO',
+    nome: 'ABÓBORA JAPONESA ORGÂNICA 600G',
     marca: 'SOLO VIVO',
     categoria : 'legumes',
     preco: 7.68,
@@ -84,7 +84,7 @@ export const initialProducts: Product[] = [
   },
   {
     id: 4,
-    nome: 'BERINJELA ORGÂNICA 600G - SOLO VIVO',
+    nome: 'BERINJELA ORGÂNICA 600G',
     marca: 'SOLO VIVO',
     categoria : 'legumes',
     preco: 9.62,
@@ -103,7 +103,7 @@ export const initialProducts: Product[] = [
   },
   {
     id: 5,
-    nome: 'CEBOLA ORGÂNICA 500G - SOLO VIVO',
+    nome: 'CEBOLA ORGÂNICA 500G',
     marca: 'SOLO VIVO',
     categoria : 'legumes',
     preco: 11.47,
@@ -126,7 +126,7 @@ export const initialProducts: Product[] = [
   },
   {
     id: 6,
-    nome: 'BANANA PRATA ORGÂNICA 800G - SOLO VIVO',
+    nome: 'BANANA PRATA ORGÂNICA 800G',
     marca: 'SOLO VIVO',
     categoria : 'legumes',
     preco: 10.73,
@@ -149,7 +149,7 @@ export const initialProducts: Product[] = [
   },
   {
     id: 7,
-    nome: 'OVO ÔMEGA 3 COM 10 UNIDADES - LABEL ROUGE',
+    nome: 'OVO ÔMEGA 3 COM 10 UNIDADES',
     marca: 'LABEL ROUGE',
     categoria : 'outros',
     preco: 14.88,
@@ -168,7 +168,7 @@ export const initialProducts: Product[] = [
   },
   {
     id: 8,
-    nome: 'ABÓBORA PAULISTA ORGÂNICA 700G - SOLO VIVO',
+    nome: 'ABÓBORA PAULISTA ORGÂNICA 700G',
     marca: 'SOLO VIVO',
     categoria : 'legumes',
     preco: 9.07,
@@ -187,7 +187,7 @@ export const initialProducts: Product[] = [
   },
   {
     id: 9,
-    nome: 'CENOURA ORGÂNICA 600G - SOLO VIVO',
+    nome: 'CENOURA ORGÂNICA 600G',
     marca: 'SOLO VIVO',
     categoria : 'legumes',
     preco: 10.73,
@@ -212,7 +212,7 @@ export const initialProducts: Product[] = [
   },
   {
     id: 10,
-    nome: 'ALFACE CRESPA VERDE ORGÂNICA - ORGANOMIX',
+    nome: 'ALFACE CRESPA VERDE ORGÂNICA',
     marca: 'ORGANOMIX',
     categoria : 'verduras',
     preco: 5.37,
