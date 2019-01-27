@@ -25,7 +25,8 @@
 
 .imagem {
   cursor: pointer;
-  position: relative;
+  display: flex;
+  justify-content: center;
   &::after {
     content: '';
     position: absolute;
