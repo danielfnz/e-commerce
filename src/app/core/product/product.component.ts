@@ -1,4 +1,3 @@
-import {CatalogoService} from '../../shared/services/catalogo.service';
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../../shared/services/product.service';
@@ -20,7 +19,6 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private catalogoService: CatalogoService,
     private productService: ProductService,
     private cartService: CartService) { }
 
@@ -40,6 +38,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   alteraQuantidade(e) {
+    this.produto.quantidade = e;
     this.quantidade = e;
   }
 }

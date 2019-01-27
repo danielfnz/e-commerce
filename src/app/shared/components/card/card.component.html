@@ -1,5 +1,6 @@
 <div class="card-container">
 
+  <span (click)="openProduct()" class="goToProduto">
   <div class="titulo">
   <span>{{produto.nome}}</span>
     <span>{{produto.marca}}</span>
@@ -7,9 +8,10 @@
   <div class="desconto">
   <app-desconto [valor]="produto.preco" [valorComDesconto]="produto.precoPromocional" [tamanho]="'small'" ></app-desconto>
   </div>
-  <div class="imagem" (click)="openProduct()">
+  <div class="imagem">
     <img [src]="produto.imagens[0]" width="100" height="100">
   </div>
+  </span>
 
   <div class="icones">
   <app-product-item-description *ngFor="let icon of produto.icones" [icon]="icon"></app-product-item-description>

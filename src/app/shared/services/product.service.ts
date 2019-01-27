@@ -1,27 +1,29 @@
-import {Injectable, OnDestroy, OnInit} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {Product} from '../model/product.model';
-import {initialProducts, STORAGE_KEY} from '../../core/product/util';
-import {filter} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+
+import { Product } from '../model/product.model';
+import { initialProducts } from '../util';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  public produtos = [];
 
+  constructor() {
+    this.produtos = initialProducts;
+  }
 
   getProductById(id) {
-    return this.getAllProducts().find(product => product.id === id);
+    return this.produtos.filter(obj => obj.id === id)[0];
   }
 
   getAllProducts() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY));
+    return this.produtos;
   }
 
   insertNewProduct(product: Product) {
     const id = this.getAllProducts()[this.getAllProducts().length - 1].id;
     product.id = id + 1;
-     localStorage.setItem(STORAGE_KEY, JSON.stringify([...this.getAllProducts(), product]));
+    this.produtos.push(product);
   }
-
 }

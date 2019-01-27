@@ -1,5 +1,5 @@
 import {AfterContentInit, Component, Input, OnInit} from '@angular/core';
-import {iconsRef} from '../util';
+import {iconsRef} from '../../../shared/util';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({

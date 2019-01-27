@@ -1,7 +1,4 @@
-import {Product} from '../../shared/model/product.model';
-
-export const STORAGE_KEY = 'products';
-
+import {Product} from './model/product.model';
 
 export const iconsRef = {
   milk: {

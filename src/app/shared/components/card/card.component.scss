@@ -1,4 +1,4 @@
-@import "../utilities";
+@import "../../../utilities.scss";
 
 .card-container {
   width: 250px;
@@ -10,6 +10,10 @@
   border: 1px solid rgba(149, 143, 143, .2);
   padding: 20px 20px;
   position: relative;
+
+  .goToProduto {
+    cursor: pointer;
+  }
 }
 
 .desconto {

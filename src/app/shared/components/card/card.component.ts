@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {Product} from '../../../shared/model/product.model';
+import {Product} from '../../model/product.model';
 import {Router} from '@angular/router';
-import {CartService} from '../../../shared/services/cart.service';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-card',
@@ -21,9 +21,11 @@ export class CardComponent {
 
   addToCart() {
     this.cartService.addCarrinho(this.produto);
+    this.router.navigate([`/cart`]);
   }
 
   alteraQuantidade(e) {
+    this.produto.quantidade = e;
     this.quantidade = e;
   }
 

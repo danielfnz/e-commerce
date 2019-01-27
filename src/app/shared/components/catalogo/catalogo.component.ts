@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CatalogoService } from '../../services/catalogo.service';
 import { CartService } from '../../services/cart.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -9,17 +9,17 @@ import { CartService } from '../../services/cart.service';
 })
 export class CatalogoComponent implements OnInit {
 
-  produtos;
+  produtosList;
 
   slideConfig = {'slidesToShow': 4, 'slidesToScroll': 4};
 
   constructor(
-    private catalogoService: CatalogoService,
-    private cartService: CartService
+    private cartService: CartService,
+    private produtosService: ProductService
     ) { }
 
   ngOnInit() {
-    this.produtos = this.catalogoService.getProdutos();
+    this.produtosList = this.produtosService.getAllProducts();
   }
 
 

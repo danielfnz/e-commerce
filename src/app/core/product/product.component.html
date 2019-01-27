@@ -1,6 +1,7 @@
 <app-header></app-header>
 
-<section class="product">
+<section>
+  <div class="product">
   <div class="product-main-image">
     <app-images-galery [imagens]="produto.imagens"></app-images-galery>
   </div>
@@ -53,11 +54,13 @@
   </div>
 
   <div class="product-similar">
+    <h3>Produtos mais vendidos</h3>
     <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
       <div ngxSlickItem *ngFor="let produto of produtosList" class="slide">
       <app-card [produto]="produto" ></app-card>
       </div>
     </ngx-slick>
+  </div>
   </div>
 </section>
 
