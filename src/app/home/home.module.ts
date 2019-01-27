@@ -11,7 +11,6 @@ import { CarouselModule } from 'ngx-bootstrap';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    CarouselModule.forRoot()
   ]
 })
 export class HomeModule { }

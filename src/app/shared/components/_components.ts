@@ -6,6 +6,7 @@ import { ItensCountComponent } from './itens-count/itens-count.component';
 import { ButtomComponent } from './buttom/buttom.component';
 import { CardComponent } from './card/card.component';
 import { DescontoComponent } from './desconto/desconto.component';
+import { SliderComponent } from './slider/slider.component';
 
 export const Components = [
   FooterComponent,
@@ -16,4 +17,5 @@ export const Components = [
   ButtomComponent,
   CardComponent,
   DescontoComponent,
+  SliderComponent,
 ];
