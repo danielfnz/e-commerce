@@ -26,6 +26,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+ngx-slick
+MIT
+
 rxjs
 Apache-2.0
                                Apache License
@@ -245,9 +248,6 @@ MIT
 MIT
 
 @angular/forms
-MIT
-
-ngx-slick
 MIT
 
 tslib
