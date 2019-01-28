@@ -1,4 +1,7 @@
 # Front-End Avançado - Trabalho final da disciplina
+<p align="center">
+ <img src="https://uploaddeimagens.com.br/images/001/861/815/full/Organicos_GYN_-_Delivery_de_produtos_organicos_-_Google_Chrome.jpg?1548706331">
+</p>
 
 ## Live demo
 You can see the live demo here: [e-commerce](https://danielfnz.github.io/e-commerce)
