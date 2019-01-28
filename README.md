@@ -1,27 +1,27 @@
-# ECommerce
+# Front-End Avançado - Trabalho final da disciplina
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+## Live demo
+You can see the live demo here: [e-commerce](https://danielfnz.github.io/e-commerce)
 
-## Development server
+## Especificação
+Criar uma aplicação web contemplando um subconjunto das funcionalidades de um e-commerce real.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[Ver especificação completa](https://github.com/danfma/pos-ufg-2018/wiki/Trabalho-final)
 
-## Code scaffolding
+## Instalação
+    $ git clone https://github.com/danielfnz/e-commerce.git
+    $ cd e-commerce
+    $ npm install
+  
+## Executando o projeto
+    
+    $ ng serve
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tecnologias utilizadas
+* Angular 7
+* Bootstrap
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Membros do grupo
+* Márcio Henrique Morales 
+* Diego Barbosa 
+* Daniel Leonardo
