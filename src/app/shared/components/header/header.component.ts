@@ -13,14 +13,14 @@ export class HeaderComponent implements OnInit {
   public valorTotal = 0;
 
   constructor(public cartService: CartService) {
+   }
+
+  ngOnInit() {
     this.cartService.getCarrinho().subscribe(carrinhoList => {
       this.carrinho = carrinhoList;
       this.quantidadeTotal = this.cartService.quantidadeTotal;
       this.valorTotal = this.cartService.valorTotal;
     });
-   }
-
-  ngOnInit() {
   }
 
 }
