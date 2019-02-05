@@ -28,7 +28,7 @@
           triggers="mouseover"
         >
           <div class="value">
-            {{ valorTotal | currency: "BRL":true }}
+            {{ valorTotal | currency: "BRL" }}
           </div>
           <div class="quantity" dropdownToggle>
             <span class="totalitems">{{ quantidadeTotal }}</span>
@@ -50,7 +50,7 @@
                     >
                       <span>Qtd. {{ item.quantidade }}</span>
                       <span>{{
-                        item.precoPromocional | currency: "BRL":true
+                        item.precoPromocional | currency: "BRL"
                       }}</span>
                     </span>
                   </div>
@@ -60,7 +60,7 @@
               <div class="valorTotal">
                 <b
                   >Total :
-                  {{ cartService.valorTotal | currency: "BRL":true }}</b
+                  {{ cartService.valorTotal | currency: "BRL" }}</b
                 >
               </div>
 

@@ -44,13 +44,13 @@
           </td>
           <td>
             <div class="price-wrap">
-              <var class="price">{{carrinhos.preco | currency: "BRL":true}}</var>
+              <var class="price">{{carrinhos.preco | currency: "BRL"}}</var>
             </div>
             <!-- price-wrap .// -->
           </td>
           <td>
             <div class="price-wrap">
-              <var class="price">{{carrinhos.quantidade  * carrinhos.preco | currency: "BRL":true}}</var>
+              <var class="price">{{carrinhos.quantidade  * carrinhos.preco | currency: "BRL"}}</var>
             </div>
             <!-- price-wrap .// -->
           </td>
@@ -60,7 +60,7 @@
         <tr>
           <th><button class="btn btn-outline-danger" (click)="clear()">Limpar carrinho</button></th>
           <th colspan="2" style="text-align:right">Subtotal:</th>
-          <th>{{CartService.valorTotal | currency: "BRL":true}}</th>
+          <th>{{CartService.valorTotal | currency: "BRL"}}</th>
         </tr>
       </tfoot>
     </table>
