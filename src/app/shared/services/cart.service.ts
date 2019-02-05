@@ -67,15 +67,4 @@ export class CartService {
     this.carrinhoObs.next(this.carrinho);
     localStorage.setItem('carrinho', "");
   }
-
-// codigo para  tratar itens repetidos
-//   addItem(item:MenuItem){
-//     let foundItem = this.items.find((mItem) => mItem.menuItem.id  === item.id)
-//     if(foundItem){
-//         foundItem.quantity = foundItem.quantity + 1
-//     } else {
-//         this.items.push(new CartItem(item))
-//     }
-// }
-
 }

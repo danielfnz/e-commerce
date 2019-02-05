@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -22,7 +23,8 @@ registerLocaleData(localePt);
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    CartModule
+    CartModule,
+    SharedModule
   ],
   exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
